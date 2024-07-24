@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/commons-math3-3.6.1/commons-math3-3.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/json-20231013.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/httpclient-4.5.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/httpcore-4.4.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/commons-logging-1.3.3-bin/commons-logging-1.3.3/commons-logging-1.3.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/jfreechart-1.0.19/jfreechart-1.0.19/lib/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/jfreechart-1.0.19/jfreechart-1.0.19/lib/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/poi-ooxml-5.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/poi-5.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/xmlbeans-5.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/poi-5.3.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/log4j-api-2.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/log4j-slf4j-impl-2.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/log4j-core-2.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/commons-io-2.16.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/commons-compress-1.26.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/is-is/Downloads/poi-ooxml-full-5.2.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
