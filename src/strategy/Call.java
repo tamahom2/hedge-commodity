@@ -99,5 +99,29 @@ public class Call extends Strategy {
 	public double premium(double S, double K, double T, double r, double b, double sigma, double spread) {
 		return this.callPercent*VanillaOptions.generalBlackScholes(S, K*(1+spread), T, r, b, sigma, "c");
 	}
+
+	@Override
+	public double simulateOneVolume(double S0, double strike, double r, int duration, Scenario scenario, double hedgedVolume,
+			List<OptionData> forwardCurve, double vol) {
+		double totalWithHedging = 0.0;
+		double totalPremium = 0.0;
+		double price = scenario.getPrice();
+		for(int i=0;i<duration;i++) {
+			double expiry;
+			if(i==0) {
+				expiry = daysBetween(forwardCurve.get(duration).expiration)/365.25;
+			}else {
+				expiry = daysBetweenTwoDates(forwardCurve.get(i+1).expiration, forwardCurve.get(duration).expiration)/365.25;
+			}
+			double currentValueOption = premium(price, strike, expiry, r, 0, vol, 0);
+			if(i==0)
+				totalPremium += hedgedVolume*currentValueOption;
+			System.out.println("Value of Option in date " + forwardCurve.get(i+1).expiration + " is : " + currentValueOption + " and will expire in : " + expiry);
+		}
+		totalWithHedging = hedgedVolume*(price - payoff(price, strike, 0));
+		return totalWithHedging+totalPremium;
+	}
+
+	
 	
 }

@@ -15,20 +15,22 @@ public class testCallStrategy {
 	
 	
 	public static void main(String[] args) throws IOException {
-    	List<OptionData> options = ForwardCurve.forwardRequest("NYMEX:CL");
+    	List<OptionData> options = ForwardCurve.forwardRequest("CME:6M");
     	double S0 = options.get(0).close;
+    	double totalVolume = 10000000.0;
     	double[] monthlyHedgedVolume = new double[24];
     	for(int i=0;i<24;i++) {
-    		monthlyHedgedVolume[i] = 1000000.0/24.0;
+    		monthlyHedgedVolume[i] = totalVolume/24.0;
     	}
     	
     	Scenario low = new Scenario("low", 30, 60, 0.4);
     	Scenario medium = new Scenario("medium", 60, 80, 0.2);
-    	Scenario high = new Scenario("high", 80, 120, 0.4);
+    	Scenario high = new Scenario("high", 0.08, 0.1, 0.4);
 
     	Strategies strats = new Strategies();
     	Put putStrat = new Put(0);
-    	Call callStrat = new Call(0.5);
+    	Call callStrat = new Call(1);
+    	/*
     	strats.addStrategy(callStrat);
     	strats.addStrategy(putStrat);
     	double withoutHedge = 1000000.0*medium.getPrice();
@@ -36,5 +38,13 @@ public class testCallStrategy {
     	System.out.println("Without Hedge : " + withoutHedge);
     	System.out.println("With Hedge : " + withHedge);
     	System.out.println("PnL : " +(((withoutHedge-withHedge)/withoutHedge)*100));
+    	*/
+    	int duration = 10;
+    	double withoutHedge = totalVolume*high.getPrice();
+    	double withHedge = callStrat.simulateOneVolume(S0, options.get(duration).close, 0.02, duration, high, totalVolume, options, 0.2);
+    	System.out.println("Without Hedge : " + withoutHedge);
+    	System.out.println("With Hedge : " + withHedge);
+    	System.out.println("PnL : " +(((withoutHedge-withHedge)/withoutHedge)*100));
+    	
     }
 }

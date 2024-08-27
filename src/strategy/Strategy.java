@@ -85,6 +85,20 @@ public abstract class Strategy {
         return daysBetween;
     }
 	
+	public static long daysBetweenTwoDates(String startDateStr, String endDateStr) {
+        // Define the date format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+
+        // Parse the input dates
+        LocalDate startDate = LocalDate.parse(startDateStr, formatter);
+        LocalDate endDate = LocalDate.parse(endDateStr, formatter);
+
+        // Calculate the number of days between the start date and end date
+        long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
+
+        return daysBetween;
+    }
+	
 	public abstract double pricingStrategy(double S, double K, double T, double r, double b, double sigma, double spread);
 	
 	public abstract double premium(double S, double K, double T, double r, double b, double sigma, double spread);
@@ -99,4 +113,6 @@ public abstract class Strategy {
 	
 	public abstract void backtest(double EPRMS, double pdd, double spread, double r, double vol, double[] maturities, double[] averageMonthly, double[] hedgedMonthlyVolume, double[] price);
 	public abstract double simulate(double S0, Scenario scenario, double[] hedgedMonthlyVolume, List<OptionData> forwardCurve, double vol);
+	public abstract double simulateOneVolume(double S0, double strike, double r, int duration, Scenario scenario, double hedgedVolume, List<OptionData> forwardCurve, double vol);
+
 }

@@ -68,4 +68,11 @@ public class Strategies extends Strategy {
 		return total;
 	}
 
+	@Override
+	public double simulateOneVolume(double S0, double strike, double r, int duration, Scenario scenario,
+			double hedgedVolume, List<OptionData> forwardCurve, double vol) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
